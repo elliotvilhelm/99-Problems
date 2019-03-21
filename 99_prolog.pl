@@ -14,6 +14,7 @@ reverse_list([], []).
 reverse_list([], _).
 reverse_list([H|Xs], Xr) :- append(New, [H], Xr), reverse_list(Xs, New), !.
 
+equal_list([], []).
+equal_list([X|Xs], [Y|Ys]) :- X = Y, equal_list(Xs, Ys).
 
-palindrome([]).
-palindrome([H|Xs]) :- 
+palindrome(Xs) :- reverse_list(Xs, Ks), equal_list(Ks, Xs).

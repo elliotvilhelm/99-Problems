@@ -10,7 +10,6 @@ elementAt :: [a] -> Int -> a
 elementAt (x:xs) 0 = x
 elementAt (x:xs) n = elementAt xs (n-1)
 
-encode :: [a] -> [(Int, a)]
-encode [] = []
-encode x:xs = foldr (\acc x -> )
 
+isPalindrome :: Eq a => [a] -> Bool
+isPalindrome xs = xs == reverse xs
