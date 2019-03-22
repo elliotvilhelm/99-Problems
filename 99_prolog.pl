@@ -18,3 +18,8 @@ equal_list([], []).
 equal_list([X|Xs], [Y|Ys]) :- X = Y, equal_list(Xs, Ys).
 
 palindrome(Xs) :- reverse_list(Xs, Ks), equal_list(Ks, Xs).
+
+
+% P22: Inclusive Range [Min - Max]
+in_range(N, M, []) :- N is M + 1.
+in_range(Min, Max, [X|Xs]) :- X = Min, Z is Min + 1, in_range(Z, Max, Xs), !.
