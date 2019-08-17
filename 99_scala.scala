@@ -61,6 +61,7 @@ object P4 {
 }
 
 object P5 {
+  // reverse an array
   def run(): Unit = {
     var res = P5.reverse(Array(0,1,2,3,4,5))
     print(s"P5 (Reverse): ")
@@ -73,7 +74,21 @@ object P5 {
       case Array(a, _, _*) => reverse(l.drop(1)) ++ Array(a)
     }
   }
+}
 
+object P6 {
+  def run(): Unit = {
+    println(s"P6 (Palindrome): 2112112 ${isPalindrome(List(2,1,1,2,1,1,2))}")
+    println(s"P6 (Palindrome): 2112113 ${isPalindrome(List(2,1,1,2,1,1,3))}")
+  }
+  def isPalindrome(l: List[Int]): Boolean = {
+    l match {
+      case Nil => true
+      case List(a,b) => a == b
+      case List(a,_,b) => a == b
+      case head :: tail => head == tail(tail.length-1) && isPalindrome(tail.drop(tail.length))
+    }
+  }
 }
 
 object Problems {
@@ -83,5 +98,6 @@ object Problems {
     P3.run()
     P4.run()
     P5.run()
+    P6.run()
   }
 }
